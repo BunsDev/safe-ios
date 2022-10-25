@@ -260,6 +260,9 @@
 		0A2A3A6D26AEBA50005FAEB7 /* SwiftCryptoTokenFormatter in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2A3A6C26AEBA50005FAEB7 /* SwiftCryptoTokenFormatter */; settings = {ATTRIBUTES = (Required, ); }; };
 		0A2AD3BC27ECD6CA00A0A6FD /* QRCodeShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AD3BA27ECD6CA00A0A6FD /* QRCodeShareViewController.swift */; };
 		0A2AD3BD27ECD6CA00A0A6FD /* QRCodeShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A2AD3BB27ECD6CA00A0A6FD /* QRCodeShareViewController.xib */; };
+		0A2DDB2C29082FB20084E394 /* MySecStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2DDB2B29082FB20084E394 /* MySecStore.swift */; };
+		0A2DDB2F29082FD20084E394 /* SecTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2DDB2D29082FD20084E394 /* SecTestViewController.swift */; };
+		0A2DDB3029082FD20084E394 /* SecTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A2DDB2E29082FD20084E394 /* SecTestViewController.xib */; };
 		0A2F1A6E267A538E00C09F03 /* GSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F1A6D267A538E00C09F03 /* GSLabel.swift */; };
 		0A2F1A70267A53A800C09F03 /* GSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F1A6F267A53A800C09F03 /* GSButton.swift */; };
 		0A2F1A7B267A5E9E00C09F03 /* GSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F1A7A267A5E9E00C09F03 /* GSImageView.swift */; };
@@ -1218,6 +1221,9 @@
 		0A26FABA28C1F22500B0F519 /* SelectedDelegateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedDelegateCell.xib; sourceTree = "<group>"; };
 		0A2AD3BA27ECD6CA00A0A6FD /* QRCodeShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeShareViewController.swift; sourceTree = "<group>"; };
 		0A2AD3BB27ECD6CA00A0A6FD /* QRCodeShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeShareViewController.xib; sourceTree = "<group>"; };
+		0A2DDB2B29082FB20084E394 /* MySecStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySecStore.swift; sourceTree = "<group>"; };
+		0A2DDB2D29082FD20084E394 /* SecTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecTestViewController.swift; sourceTree = "<group>"; };
+		0A2DDB2E29082FD20084E394 /* SecTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecTestViewController.xib; sourceTree = "<group>"; };
 		0A2F1A6D267A538E00C09F03 /* GSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSLabel.swift; sourceTree = "<group>"; };
 		0A2F1A6F267A53A800C09F03 /* GSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSButton.swift; sourceTree = "<group>"; };
 		0A2F1A7A267A5E9E00C09F03 /* GSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSImageView.swift; sourceTree = "<group>"; };
@@ -2499,6 +2505,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0A2DDB2629081FAA0084E394 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				0A2DDB2B29082FB20084E394 /* MySecStore.swift */,
+				0A2DDB2D29082FD20084E394 /* SecTestViewController.swift */,
+				0A2DDB2E29082FD20084E394 /* SecTestViewController.xib */,
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 		0A3DADAE26270FA900743E38 /* idn2 */ = {
@@ -4092,6 +4108,7 @@
 		B0D61012F3C4AC13FA79F697 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0A2DDB2629081FAA0084E394 /* Security */,
 				B0D611C5114B87C99128649E /* Connect to Web */,
 				B0D619682738385AF4E973F7 /* Connect to Wallet */,
 			);
@@ -4487,6 +4504,7 @@
 				0422007025EFDF4E00CAC173 /* TagView.xib in Resources */,
 				0A93DD662445CC8B00688050 /* LaunchScreen.storyboard in Resources */,
 				6AFD26ED2861B0DE00336FFE /* SafeTokenBanner.xib in Resources */,
+				0A2DDB3029082FD20084E394 /* SecTestViewController.xib in Resources */,
 				0A109E2D2689D17B00226708 /* NetworkIndicator.xib in Resources */,
 				048D72D226875B2D0095999C /* TableHeaderView.xib in Resources */,
 				558835F9255BFEF80014E8C7 /* AddressInfoView.xib in Resources */,
@@ -4994,6 +5012,7 @@
 				6AA2724A27DF566B00934B37 /* PendingWalletActionViewController.swift in Sources */,
 				0ADD19C4265EA23200EB0F2B /* SeedPhraseView.swift in Sources */,
 				0AC60C9D2549D63300A63AE2 /* NoSafesViewController.swift in Sources */,
+				0A2DDB2C29082FB20084E394 /* MySecStore.swift in Sources */,
 				6AFD26E62859E8EC00336FFE /* InfoBoxView.swift in Sources */,
 				0A06533927B6D4960008C5F1 /* ChooseOwnerBasicHeaderView.swift in Sources */,
 				0A95894025EFBE1E005011D7 /* KeyInfo.swift in Sources */,
@@ -5209,6 +5228,7 @@
 				0ADD19C5265EA23200EB0F2B /* SeedWordCollectionViewCell.swift in Sources */,
 				D865178127687E0B000B4C04 /* SuccessViewController.swift in Sources */,
 				0A478D3325B861D50038363E /* DefaultKeyTableViewCell.swift in Sources */,
+				0A2DDB2F29082FD20084E394 /* SecTestViewController.swift in Sources */,
 				550FB1C326691E1500C13D54 /* OnboardingConnectOwnerKeyViewController.swift in Sources */,
 				0472B2B22869D3510049BA17 /* ClaimSafeTokenFlow.swift in Sources */,
 				6AFD26DE28578F1200336FFE /* IdenticonInfoView.swift in Sources */,
