@@ -12,7 +12,7 @@ class SecTestViewController: UIViewController {
 
     @IBOutlet weak var keyIDValueLabel: UILabel!
 
-    var keyID: String? {
+    var keyID: String? = "MYKEY" {
         didSet {
             guard isViewLoaded else { return }
             update()
@@ -34,7 +34,12 @@ class SecTestViewController: UIViewController {
 
     @IBAction func createKey() {
         do {
-            let keyID = UUID().uuidString
+            let keyID: String
+            if self.keyID == nil {
+                keyID = UUID().uuidString
+            } else {
+                keyID = self.keyID!
+            }
             key = try store.createKey(tag: tag(keyID))
             self.keyID = keyID
         } catch {
@@ -63,10 +68,20 @@ class SecTestViewController: UIViewController {
         }
         do {
             key = try store.findKey(tag: tag(keyID))
-            if key == nil {
-                self.keyID = nil
+            if let key = key {
+                let algo: SecKeyAlgorithm = .ecdsaSignatureMessageX962SHA256
+                guard SecKeyIsAlgorithmSupported(key, .sign, algo) else {
+                    LogService.shared.error("Algo not supported")
+                    return
+                }
+                var error: Unmanaged<CFError>?
+                let data = "My Data".data(using: .utf8)!
+                guard let sig = SecKeyCreateSignature(key, algo, data as CFData, &error) else {
+                    throw error!.takeRetainedValue() as Error
+                }
+                LogService.shared.debug("Signature: \((sig as Data).toHexStringWithPrefix())")
             } else {
-                LogService.shared.debug("Found")
+                self.keyID = nil
             }
         } catch {
             LogService.shared.error("Find error: \(error)")
