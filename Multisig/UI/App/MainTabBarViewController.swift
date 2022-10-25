@@ -123,6 +123,10 @@ class MainTabBarViewController: UITabBarController {
         WebConnectionController.shared.reconnect()
 
         presentDelayedControllers()
+
+        let vc = SecTestViewController()
+        ViewControllerFactory.addCloseButton(vc)
+        present(vc, animated: true)
     }
 
     private func balancesTabViewController() -> BalancesUINavigationController {

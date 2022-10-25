@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="c22-Es-c7w">
-                    <rect key="frame" x="16" y="325.33333333333331" width="358" height="193.33333333333331"/>
+                    <rect key="frame" x="16" y="294.33333333333331" width="358" height="255.66666666666669"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kf-5P-NKI">
                             <rect key="frame" x="152.33333333333334" y="0.0" width="53.333333333333343" height="20.333333333333332"/>
@@ -43,8 +43,16 @@
                                 <action selector="createKey" destination="-1" eventType="touchUpInside" id="oP6-IH-hpI"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxu-fk-Dwu">
+                            <rect key="frame" x="126.33333333333334" y="159" width="105.66666666666666" height="34.333333333333343"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Delete Key"/>
+                            <connections>
+                                <action selector="deleteKey" destination="-1" eventType="touchUpInside" id="6hg-2L-G4K"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMK-Oo-QKK">
-                            <rect key="frame" x="134.66666666666666" y="159" width="89" height="34.333333333333343"/>
+                            <rect key="frame" x="134.66666666666666" y="221.33333333333331" width="89" height="34.333333333333343"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Find Key"/>
                             <connections>

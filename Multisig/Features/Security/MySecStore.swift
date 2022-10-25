@@ -9,7 +9,7 @@
 import Foundation
 
 class MySecStore {
-    func createKey(protection: CFString = kSecAttrAccessibleWhenUnlockedThisDeviceOnly, flags: SecAccessControlCreateFlags = .applicationPassword, tag: String) throws -> SecKey {
+    func createKey(protection: CFString = kSecAttrAccessibleWhenUnlockedThisDeviceOnly, flags: SecAccessControlCreateFlags = [.and, .applicationPassword, .biometryAny], tag: String) throws -> SecKey {
         // create access control flags with params
         var accessError: Unmanaged<CFError>?
         guard let access = SecAccessControlCreateWithFlags(
@@ -62,6 +62,23 @@ class MySecStore {
         case errSecItemNotFound:
             return nil
 
+        case let status:
+            let message = SecCopyErrorMessageString(status, nil) as? String ?? String(status)
+            let error = NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: [NSLocalizedDescriptionKey: message])
+            throw error
+        }
+    }
+
+    func deleteKey(tag: String) throws {
+        let deleteQuery: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: tag.data(using: .utf8)!,
+            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
+        ]
+        let status = SecItemDelete(deleteQuery as CFDictionary)
+
+        switch status {
+        case errSecSuccess, errSecItemNotFound: return
         case let status:
             let message = SecCopyErrorMessageString(status, nil) as? String ?? String(status)
             let error = NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: [NSLocalizedDescriptionKey: message])
