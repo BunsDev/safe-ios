@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="c22-Es-c7w">
-                    <rect key="frame" x="16" y="294.33333333333331" width="358" height="255.66666666666669"/>
+                    <rect key="frame" x="16" y="263" width="358" height="318"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kf-5P-NKI">
                             <rect key="frame" x="152.33333333333334" y="0.0" width="53.333333333333343" height="20.333333333333332"/>
@@ -30,7 +30,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key ID Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHT-9R-rho">
-                            <rect key="frame" x="131.66666666666666" y="48.333333333333371" width="94.666666666666657" height="20.333333333333329"/>
+                            <rect key="frame" x="131.66666666666666" y="48.333333333333314" width="94.666666666666657" height="20.333333333333329"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -51,8 +51,16 @@
                                 <action selector="deleteKey" destination="-1" eventType="touchUpInside" id="6hg-2L-G4K"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3G0-F4-426">
+                            <rect key="frame" x="123" y="221.33333333333331" width="112.33333333333331" height="34.333333333333343"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Update Key"/>
+                            <connections>
+                                <action selector="updateKey:" destination="-1" eventType="touchUpInside" id="pQr-1p-wcf"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMK-Oo-QKK">
-                            <rect key="frame" x="134.66666666666666" y="221.33333333333331" width="89" height="34.333333333333343"/>
+                            <rect key="frame" x="134.66666666666666" y="283.66666666666663" width="89" height="34.333333333333314"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Find Key"/>
                             <connections>

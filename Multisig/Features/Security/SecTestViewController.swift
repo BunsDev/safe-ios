@@ -40,7 +40,9 @@ class SecTestViewController: UIViewController {
             } else {
                 keyID = self.keyID!
             }
-            key = try store.createKey(tag: tag(keyID))
+            key = try store.createKey(
+                flags: [.userPresence],
+                tag: tag(keyID))
             self.keyID = keyID
         } catch {
             LogService.shared.error("Create error: \(error)")
@@ -60,6 +62,19 @@ class SecTestViewController: UIViewController {
         } catch {
             LogService.shared.error("Delete error: \(error)")
         }
+    }
+    @IBAction func updateKey(_ sender: Any) {
+        guard let keyID = keyID else {
+            return
+        }
+        do {
+            try store.updateKey(
+                flags: [.applicationPassword, .userPresence],
+                tag: tag(keyID))
+        } catch {
+            LogService.shared.error("Update error: \(error)")
+        }
+
     }
 
     @IBAction func findKey() {
