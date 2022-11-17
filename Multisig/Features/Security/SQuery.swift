@@ -65,23 +65,13 @@ enum SItem {
             break
 
         case let .enclaveKey(tag):
-            // create access control flags with params
-            var accessError: Unmanaged<CFError>?
-            guard let access = SecAccessControlCreateWithFlags(
-                    kCFAllocatorDefault,
-                    kSecAttrAccessibleAfterFirstUnlock,
-                    .privateKeyUsage.union(access),
-                    &accessError
-            )
-            else {
-                throw accessError!.takeRetainedValue() as Error
-            }
+            let accessControl = try accessControl(flags: .privateKeyUsage.union(access))
 
             // create private key attributes
             var privateKeyAttrs: NSMutableDictionary =  [
                 kSecAttrIsPermanent: true,
                 kSecAttrApplicationTag: tag.data(using: .utf8)!,
-                kSecAttrAccessControl: access
+                kSecAttrAccessControl: accessControl
             ]
 
             if let context = LAContext(password: password) {
@@ -100,5 +90,22 @@ enum SItem {
         }
 
         return result
+    }
+
+    // create access control flags with params
+    fileprivate func accessControl(flags: SecAccessControlCreateFlags) throws -> SecAccessControl {
+        // SWIFT: can't extend SecAccessControl (compiler error that extensions of CF classes are not supported).
+
+        var accessError: Unmanaged<CFError>?
+        guard let access = SecAccessControlCreateWithFlags(
+                kCFAllocatorDefault,
+                kSecAttrAccessibleAfterFirstUnlock,
+                flags,
+                &accessError
+        )
+        else {
+            throw accessError!.takeRetainedValue() as Error
+        }
+        return access
     }
 }
