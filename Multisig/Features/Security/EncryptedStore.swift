@@ -109,53 +109,6 @@ struct SItemIDIndex {
     }
 }
 
-struct SItem {
-
-    func createAttributes() -> [String: Any] {
-        [:]
-    }
-}
-
-import LocalAuthentication
-
-
-
-class SKeychainStore {
-    func create() {
-
-    }
-
-    func delete() {
-
-    }
-
-    // input:
-    //    - query: dictionary of parameters
-    // output:
-    //    - if query.class is password, then Data
-    //    - if query.class is key, then SecKey
-    //    - if error occurs, throws error
-    func find(query: [String: Any]) throws -> AnyObject? {
-        var item: CFTypeRef?
-        let status = SecItemCopyMatching(query as CFDictionary, &item)
-        switch status {
-        case errSecSuccess:
-            return item
-
-        case errSecItemNotFound:
-            return nil
-
-        case let status:
-            let message = SecCopyErrorMessageString(status, nil) as? String ?? String(status)
-            let error = NSError(
-                domain: NSOSStatusErrorDomain,
-                code: Int(status),
-                userInfo: [NSLocalizedDescriptionKey: message]
-            )
-            throw error
-        }
-    }
-}
 
 class SCoder {
     func encrypt() {
